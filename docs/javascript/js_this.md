@@ -21,7 +21,7 @@ console.log(window === this) // true
 - commonjs模块
 顶层`this`等于`exports`
 
-### 函数环境(`Function Context`)的`this`
+## 函数环境(`Function Context`)的`this`
 
 对于函数来说 `this`是运行时绑定的，取决于执行环境，每次调用`this`都可能不一样
 浏览器环境下，在全局函数中，`this`等于`window`，而当函数作为某个对象的方法调用时，`this`等于那个对象
@@ -94,7 +94,7 @@ getType.call(null); // [object Null]
 getType.call({ name: 'stan' }); // [object Object]
 ```
 
-### 构造函数里的`this`
+## 构造函数里的`this`
 
 构造函数里的`this`指的是`new`出来的实例对象
 
@@ -115,11 +115,11 @@ var p = new Person('stan');
 console.log(p);
 ```
 
-### 类环境(Class context)下的`this`
+## 类环境(Class context)下的`this`
 
 在类的构造器(`constructor`)里，`this`指的是类的实例
 
-### 派生类(Derived classes)的this
+## 派生类(Derived classes)的this
 
 派生类没有初始`this`，调用`super()`方法会创建一个`this`，等同于以下代码
 
@@ -127,7 +127,7 @@ console.log(p);
 this = new Base();
 ```
 
-### 原型链上的`this`
+## 原型链上的`this`
 
 如果函数在某个对象的原型链上，在该对象上调用此方法时，`this`指的是此对象
 
@@ -141,7 +141,7 @@ p.b = 4;
 console.log(p.f()); // 5
 ```
 
-### getter setter里的`this`
+## getter setter里的`this`
 
 对象的属性的`getter`、`setter`里的`this`，就是该对象
 
