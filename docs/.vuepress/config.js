@@ -1,3 +1,5 @@
+const { fs, path } = require('@vuepress/shared-utils')
+
 module.exports = {
   title: 'StanJ\'s Blog',
   description: '记录工作、学习经验',
@@ -15,13 +17,21 @@ module.exports = {
       { text: '设计模式', link: '/design_patterns/' }
     ],
     sidebar: {
-      '/javascript/': [
-        '',
-        'js_this'
-      ],
+      '/javascript/': getSideBar('javascript'),
+      '/algorithm/': getSideBar('algorithm'),
       '/': [
         ''
       ]
     }
   }
+}
+
+function getSideBar(folder) {
+  let files = fs
+    .readdirSync(path.resolve(__dirname, `../${folder}`))
+    .map(filename => filename.slice(0, -3))
+    .filter(name => name !== 'README')
+
+  files.unshift('')
+  return files
 }
