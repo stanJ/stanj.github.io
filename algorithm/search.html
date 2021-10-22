@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常见查找算法 | StanJ&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="记录工作、学习经验">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.dd43cef8.js" as="script"><link rel="preload" href="/assets/js/2.f276b923.js" as="script"><link rel="preload" href="/assets/js/9.19eaf447.js" as="script"><link rel="prefetch" href="/assets/js/10.ab36de29.js"><link rel="prefetch" href="/assets/js/11.59ffe952.js"><link rel="prefetch" href="/assets/js/12.fcf9dddd.js"><link rel="prefetch" href="/assets/js/13.c18ab94a.js"><link rel="prefetch" href="/assets/js/14.313f65b5.js"><link rel="prefetch" href="/assets/js/3.f2d89d7b.js"><link rel="prefetch" href="/assets/js/4.b5c5d85a.js"><link rel="prefetch" href="/assets/js/5.aedbb9bc.js"><link rel="prefetch" href="/assets/js/6.7dd3e1f3.js"><link rel="prefetch" href="/assets/js/7.00cd415f.js"><link rel="prefetch" href="/assets/js/8.6d3e3552.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">StanJ's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  html
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/design_patterns/" class="nav-link">
+  设计模式
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  html
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/design_patterns/" class="nav-link">
+  设计模式
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/algorithm/" aria-current="page" class="sidebar-link">algorithm</a></li><li><a href="/algorithm/search.html" aria-current="page" class="active sidebar-link">常见查找算法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/algorithm/search.html#二分查找" class="sidebar-link">二分查找</a></li></ul></li><li><a href="/algorithm/sort.html" class="sidebar-link">常见排序算法</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="常见查找算法"><a href="#常见查找算法" class="header-anchor">#</a> 常见查找算法</h1> <h2 id="二分查找"><a href="#二分查找" class="header-anchor">#</a> 二分查找</h2> <p>如何在一个有序数组里进行查找</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span><span class="token parameter">ary<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">let</span> end <span class="token operator">=</span> ary<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span>start <span class="token operator">&lt;=</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> mid <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>start <span class="token operator">+</span> end<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> midNum <span class="token operator">=</span> ary<span class="token punctuation">[</span>mid<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">&gt;</span> midNum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      start <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">&lt;</span> midNum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      end <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> mid
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token function">binarySearch</span><span class="token punctuation">(</span>ary<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token comment">// const ary = [2, 5, 7, 9, 12, 14, 20, 26, 30]</span>
+<span class="token comment">// let index = binarySearch(ary, 7)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'searched index '</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span></code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/algorithm/" class="prev router-link-active">
+        algorithm
+      </a></span> <span class="next"><a href="/algorithm/sort.html">
+        常见排序算法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.dd43cef8.js" defer></script><script src="/assets/js/2.f276b923.js" defer></script><script src="/assets/js/9.19eaf447.js" defer></script>
+  </body>
+</html>
