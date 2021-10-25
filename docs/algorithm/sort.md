@@ -4,6 +4,8 @@
 
 ## 快速排序
 
+<<< @/src/demo/algorithm/quick_sort.js
+
 ## 堆排序
 
 ## 计数排序
