@@ -8,7 +8,7 @@
     
     <meta name="description" content="记录工作、学习经验">
     
-    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.de22197c.js" as="script"><link rel="preload" href="/assets/js/2.f276b923.js" as="script"><link rel="preload" href="/assets/js/10.4625c73d.js" as="script"><link rel="prefetch" href="/assets/js/11.59ffe952.js"><link rel="prefetch" href="/assets/js/12.fcf9dddd.js"><link rel="prefetch" href="/assets/js/13.c18ab94a.js"><link rel="prefetch" href="/assets/js/14.313f65b5.js"><link rel="prefetch" href="/assets/js/3.f2d89d7b.js"><link rel="prefetch" href="/assets/js/4.b5c5d85a.js"><link rel="prefetch" href="/assets/js/5.aedbb9bc.js"><link rel="prefetch" href="/assets/js/6.7dd3e1f3.js"><link rel="prefetch" href="/assets/js/7.00cd415f.js"><link rel="prefetch" href="/assets/js/8.6d3e3552.js"><link rel="prefetch" href="/assets/js/9.19eaf447.js">
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f2909339.js" as="script"><link rel="preload" href="/assets/js/2.f276b923.js" as="script"><link rel="preload" href="/assets/js/10.0870a9c7.js" as="script"><link rel="prefetch" href="/assets/js/11.59ffe952.js"><link rel="prefetch" href="/assets/js/12.fcf9dddd.js"><link rel="prefetch" href="/assets/js/13.c18ab94a.js"><link rel="prefetch" href="/assets/js/14.313f65b5.js"><link rel="prefetch" href="/assets/js/3.f2d89d7b.js"><link rel="prefetch" href="/assets/js/4.b5c5d85a.js"><link rel="prefetch" href="/assets/js/5.aedbb9bc.js"><link rel="prefetch" href="/assets/js/6.7dd3e1f3.js"><link rel="prefetch" href="/assets/js/7.00cd415f.js"><link rel="prefetch" href="/assets/js/8.6d3e3552.js"><link rel="prefetch" href="/assets/js/9.19eaf447.js">
     <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
   </head>
   <body>
@@ -33,6 +33,7 @@
 </a></div><div class="nav-item"><a href="/design_patterns/" class="nav-link">
   设计模式
 </a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/algorithm/" aria-current="page" class="sidebar-link">algorithm</a></li><li><a href="/algorithm/search.html" class="sidebar-link">常见查找算法</a></li><li><a href="/algorithm/sort.html" aria-current="page" class="active sidebar-link">常见排序算法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/algorithm/sort.html#冒泡排序" class="sidebar-link">冒泡排序</a></li><li class="sidebar-sub-header"><a href="/algorithm/sort.html#快速排序" class="sidebar-link">快速排序</a></li><li class="sidebar-sub-header"><a href="/algorithm/sort.html#堆排序" class="sidebar-link">堆排序</a></li><li class="sidebar-sub-header"><a href="/algorithm/sort.html#计数排序" class="sidebar-link">计数排序</a></li><li class="sidebar-sub-header"><a href="/algorithm/sort.html#桶排序" class="sidebar-link">桶排序</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="常见排序算法"><a href="#常见排序算法" class="header-anchor">#</a> 常见排序算法</h1> <h2 id="冒泡排序"><a href="#冒泡排序" class="header-anchor">#</a> 冒泡排序</h2> <h2 id="快速排序"><a href="#快速排序" class="header-anchor">#</a> 快速排序</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 快速排序 采用分治法 单边循环</span>
+<span class="token comment">// 由于递归需要借助栈空间，所以空间复杂度为O(logn)</span>
 <span class="token keyword">function</span> <span class="token function">quickSort</span><span class="token punctuation">(</span><span class="token parameter">ary</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
   <span class="token function">partition</span><span class="token punctuation">(</span>ary<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> ary<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
@@ -41,7 +42,7 @@
     <span class="token keyword">if</span> <span class="token punctuation">(</span>start_index <span class="token operator">&gt;</span> end_index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">return</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> random_index <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">ceil</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>end_index <span class="token operator">-</span> start_index<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> start_index
+    <span class="token keyword">let</span> random_index <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>end_index <span class="token operator">-</span> start_index<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> start_index
     <span class="token keyword">let</span> temp <span class="token operator">=</span> ary<span class="token punctuation">[</span>start_index<span class="token punctuation">]</span>
     ary<span class="token punctuation">[</span>start_index<span class="token punctuation">]</span> <span class="token operator">=</span> ary<span class="token punctuation">[</span>random_index<span class="token punctuation">]</span>
     ary<span class="token punctuation">[</span>random_index<span class="token punctuation">]</span> <span class="token operator">=</span> temp
@@ -66,11 +67,65 @@
 
 <span class="token keyword">let</span> ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
 <span class="token function">quickSort</span><span class="token punctuation">(</span>ary<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'ary '</span><span class="token punctuation">,</span> ary<span class="token punctuation">)</span></code></pre></div><h2 id="堆排序"><a href="#堆排序" class="header-anchor">#</a> 堆排序</h2> <h2 id="计数排序"><a href="#计数排序" class="header-anchor">#</a> 计数排序</h2> <h2 id="桶排序"><a href="#桶排序" class="header-anchor">#</a> 桶排序</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'ary '</span><span class="token punctuation">,</span> ary<span class="token punctuation">)</span></code></pre></div><h2 id="堆排序"><a href="#堆排序" class="header-anchor">#</a> 堆排序</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 根据自己的公式推导
+ * 建堆的时间公式为 T = n + log(n+1)
+ * 目前看来似乎可以把log(n+1)省略掉
+ * 结果是O(n)
+ */</span>
+<span class="token comment">/**
+ * 从小到大排序需要构建最大堆，然后删除堆顶元素(把堆顶元素和最后一个元素交换位置)，
+ * 调整堆，小的元素下沉，产生新的最大堆堆顶
+ * 持续进行，最后变为从小到大排序
+ * 堆排序最坏时间复杂度稳定在O(nlogn)
+ * 快速排序最坏时间复杂度为O(n^2)
+ */</span>
+
+<span class="token keyword">function</span> <span class="token function">heapSort</span><span class="token punctuation">(</span><span class="token parameter">ary</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 把无序数组构建成最大堆</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>ary<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">downAdjust</span><span class="token punctuation">(</span>ary<span class="token punctuation">,</span> i<span class="token punctuation">,</span> ary<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'最大堆 '</span><span class="token punctuation">,</span> ary<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> ary<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> temp <span class="token operator">=</span> ary<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    ary<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ary<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    ary<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp
+    <span class="token function">downAdjust</span><span class="token punctuation">(</span>ary<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 
+ * @param {[]} ary 
+ * @param {number} parent_index 
+ * @param {number} length 数组有效长度
+ */</span>
+<span class="token keyword">function</span> <span class="token function">downAdjust</span><span class="token punctuation">(</span><span class="token parameter">ary<span class="token punctuation">,</span> parent_index<span class="token punctuation">,</span> length</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 保存父节点 用于最后的赋值</span>
+  <span class="token keyword">let</span> temp <span class="token operator">=</span> ary<span class="token punctuation">[</span>parent_index<span class="token punctuation">]</span>
+  <span class="token keyword">let</span> child_index <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> parent_index <span class="token operator">+</span> <span class="token number">1</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>child_index <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>child_index <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&lt;</span> length <span class="token operator">&amp;&amp;</span> ary<span class="token punctuation">[</span>child_index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> ary<span class="token punctuation">[</span>child_index<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      child_index<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">&gt;=</span> ary<span class="token punctuation">[</span>child_index<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">break</span>
+    <span class="token punctuation">}</span>
+    ary<span class="token punctuation">[</span>parent_index<span class="token punctuation">]</span> <span class="token operator">=</span> ary<span class="token punctuation">[</span>child_index<span class="token punctuation">]</span>
+    parent_index <span class="token operator">=</span> child_index
+    child_index <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> parent_index <span class="token operator">+</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+  ary<span class="token punctuation">[</span>parent_index<span class="token punctuation">]</span> <span class="token operator">=</span> temp
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> ary <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token function">heapSort</span><span class="token punctuation">(</span>ary<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'heap sort '</span><span class="token punctuation">,</span> ary<span class="token punctuation">)</span></code></pre></div><h2 id="计数排序"><a href="#计数排序" class="header-anchor">#</a> 计数排序</h2> <h2 id="桶排序"><a href="#桶排序" class="header-anchor">#</a> 桶排序</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/algorithm/search.html" class="prev">
         常见查找算法
       </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.de22197c.js" defer></script><script src="/assets/js/2.f276b923.js" defer></script><script src="/assets/js/10.4625c73d.js" defer></script>
+    <script src="/assets/js/app.f2909339.js" defer></script><script src="/assets/js/2.f276b923.js" defer></script><script src="/assets/js/10.0870a9c7.js" defer></script>
   </body>
 </html>
