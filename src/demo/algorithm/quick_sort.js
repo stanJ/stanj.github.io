@@ -1,4 +1,5 @@
 // 快速排序 采用分治法 单边循环
+// 由于递归需要借助栈空间，所以空间复杂度为O(logn)
 function quickSort(ary) {
 
   partition(ary, 0, ary.length - 1)
@@ -7,7 +8,7 @@ function quickSort(ary) {
     if (start_index > end_index) {
       return
     }
-    let random_index = Math.ceil(Math.random() * (end_index - start_index)) + start_index
+    let random_index = Math.floor(Math.random() * (end_index - start_index)) + start_index
     let temp = ary[start_index]
     ary[start_index] = ary[random_index]
     ary[random_index] = temp
