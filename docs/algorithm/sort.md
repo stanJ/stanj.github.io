@@ -8,6 +8,8 @@
 
 ## 堆排序
 
+<<< @/src/demo/algorithm/heap_sort.js
+
 ## 计数排序
 
 ## 桶排序
